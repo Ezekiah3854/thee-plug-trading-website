@@ -1,11 +1,20 @@
 """thee plug trading website"""
 
-from flask import Flask, jsonify
+import os
+import datetime
+from flask import Flask, jsonify, render_template, session
+from dotenv import load_dotenv
+
+# load environment variables
+load_dotenv(".env")
 
 app = Flask(__name__)
+
+# config sessions
+app.secret_key = os.getenv("SECRET")
+app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 
 @app.get('/')
 def home():
     """landing page"""
-    message = "thee plug trading website in development."
-    return jsonify(message), 200
+    return render_template("home.html"), 200
