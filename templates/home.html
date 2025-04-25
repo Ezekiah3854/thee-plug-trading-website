@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>{% block title%}Home | The plug trading{% endblock%}</title>
+    <title>{% block title %}Home | The plug trading{% endblock %}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,7 @@
                         <div class="app-utilities col-auto">
 							
                             <div class="app-utility-item app-user-dropdown dropdown" style="display: flex;">
-								<P class="py-2" style="margin-right: 1em;">Greetings, Nyagwaya.</P>
+								<p class="py-2" style="margin-right: 1em;">Greetings, Nyagwaya.</p>
                                 <img src="{{ url_for('static', filename='img/youngprince.jpg') }}" alt="user profile">
                             </div>
                         </div>
@@ -157,6 +157,8 @@
                         <p class="mb-0">Copyright &copy; . All rights reserved.</p>
                     </div>
                 </footer>
+            </div>
+        </div>
     </div>  					
     <script src="{{ url_for('static', filename='js/home.js') }}"></script> 
 </body>
