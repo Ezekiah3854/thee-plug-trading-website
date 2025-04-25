@@ -19,3 +19,19 @@ app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 def home():
     """landing page"""
     return render_template("home.html"), 200
+
+
+@app.get("/schedule-class")
+def schedule_class():
+    """schedule class page"""
+    return render_template("class.html"), 200
+
+@app.get("/brokers")
+def get_broker():
+    """brokers page"""
+    return render_template("brokers.html"), 200
+
+@app.get("/available-bots")
+def available_bots():
+    """available bots page"""
+    return render_template("available_bots.html"), 200

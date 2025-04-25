@@ -216,7 +216,6 @@ width: auto;}
 .nav {
     --bs-nav-link-padding-x: 1rem;
     --bs-nav-link-padding-y: 0.5rem;
-    --bs-nav-link-font-weight: ;
     --bs-nav-link-color: var(--bs-link-color);
     --bs-nav-link-hover-color: var(--bs-link-hover-color);
     --bs-nav-link-disabled-color: var(--bs-secondary-color);
@@ -230,7 +229,6 @@ width: auto;}
     display:block;
     padding:var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size:var(--bs-nav-link-font-size);
-    font-weight:var(--bs-nav-link-font-weight);
     color:var(--bs-nav-link-color);
     text-decoration:none;
     background:none;
@@ -546,6 +544,8 @@ h4,.h4 {
     left:1rem;
     top:.7rem
 }
+
+/* styling side panel footer (logout) */
 .app-sidepanel-footer {
     width:100%;
     bottom:0;
@@ -556,6 +556,8 @@ h4,.h4 {
 .app-sidepanel-footer .app-nav-footer {
     margin-bottom:0
 }
+
+/* styling various components with media query */
 @media(max-width: 1199.98px) {
     .app-sidepanel {
         transition:all .4s ease-in-out;
@@ -601,6 +603,7 @@ h4,.h4 {
 .app-footer .copyright {
     font-size:.8125rem
 }
+/* styling app wrapper with transition */
 .app-wrapper {
     transition:all .4s ease-in-out
 }
@@ -609,3 +612,13 @@ h4,.h4 {
         transition:none
     }
 }
+
+/* styling schedule class page */
+.class-container {
+    padding: 2em;
+    background-color: #f5f6fe;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    margin: 1em 0;
+}
+
