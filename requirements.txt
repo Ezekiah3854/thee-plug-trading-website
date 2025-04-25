@@ -1,3 +1,5 @@
 flask
 bcrypt
 python-dotenv
+requests
+black
