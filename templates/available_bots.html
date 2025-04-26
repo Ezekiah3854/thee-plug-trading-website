@@ -1,5 +1,68 @@
+<!-- extend the home page features here -->
 {% extends "home.html"%}
 {% block title %}Available Bots | The plug Trading{% endblock %}
-{% block content %}
 
-{% endblock %}
+{%block content%}
+<!-- div container for the available bots page  -->
+    <div class="container onprintContainer">
+        <!-- first bot -->
+        <div class="container my-3 py-3" id="product">
+            <div class="row align-items-center shadow p-4 rounded">
+                <!-- Image -->
+                <div class="col-lg-5 text-center">
+                    <img src="{{ url_for('static', filename='img/bot_image1.jpg') }}" class="img-fluid rounded shadow-sm" alt="product">
+                </div>
+
+                <!-- Text Content -->
+                <div class="col-lg-7">
+                    <h5 class="fw-bold text-primary my-3">Digits Bot: Even/Odd</h5>
+                    <p>This bot analyzes numerical patterns and executes trades based on predicted outcomes. 
+                        It determines whether the next digit in a trading sequence will be even or odd, helping you optimize 
+                        your strategy with automated precision.</p>
+                    <a href="#" class="stretched-link">Click to buy this bot</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- second bot -->
+        <div class="container my-3 py-3" id="product">
+            <div class="row align-items-center shadow p-4 rounded">
+                <!-- Image -->
+                <div class="col-lg-5 text-center">
+                    <img src="{{ url_for('static', filename='img/bot_image2.jpg') }}" class="img-fluid rounded shadow-sm" alt="product">
+                </div>
+
+                <!-- Text Content -->
+                <div class="col-lg-7">
+                    <h5 class="fw-bold text-primary my-3">Accumulator Bot</h5>
+                    <p>Accumulator Bot is able to track and analyze trading sequences, identifying profitable opportunities 
+                        based on accumulated patterns. It executes trades strategically     to maximize returns while minimizing risk. Ideal for traders looking for a systematic and automated approach 
+                        to compounding profits.
+                    </p>
+                    <a href="#" class="stretched-link">Click to buy this bot</a>
+                </div>
+            </div>
+        </div>
+        <!-- third bot -->
+        <div class="container my-3 py-3" id="product">
+            <div class="row align-items-center shadow p-4 rounded">
+                <!-- Image -->
+                <div class="col-lg-5 text-center">
+                    <img src="{{ url_for('static', filename='img/bot_image3.jpg') }}" class="img-fluid rounded shadow-sm" alt="product">
+                </div>
+
+                <!-- Text Content -->
+                <div class="col-lg-7">
+                    <h5 class="fw-bold text-primary my-3">Market Making Bot</h5>
+                    <p>
+                        The Market-Making Bot strategically places buy and sell orders to enhance liquidity in the market. 
+                        It continuously adjusts pricing based on supply and demand, aiming to generate small yet consistent profits 
+                        while maintaining a balanced trading environment.
+                    </p>
+                    <a href="#" class="stretched-link">Click to buy this bot</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+    
