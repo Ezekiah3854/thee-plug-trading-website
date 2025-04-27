@@ -613,7 +613,7 @@ h4,.h4 {
     }
 }
 
-/* styling schedule class page */
+/* Styling schedule class page */
 .class-container {
     padding: 2em;
     background-color: #f5f6fe;
@@ -622,3 +622,29 @@ h4,.h4 {
     margin: 1em 0;
 }
 
+/* Styling bot container */
+/* Default bot container styles */
+.class-container .bot-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure image is properly sized */
+.class-container .bot-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 400px) {
+    .class-container .bot-container {
+        display: block;
+        text-align: center; /* Centers the content */
+    }
+
+    .class-container .bot-container img {
+        display: block;
+        margin: 0 auto; /* Centers the image */
+    }
+}
