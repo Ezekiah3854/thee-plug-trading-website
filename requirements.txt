@@ -3,3 +3,4 @@ bcrypt
 python-dotenv
 requests
 black
+mysql-connector-python
