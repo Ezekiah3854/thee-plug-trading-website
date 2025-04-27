@@ -18,7 +18,7 @@ app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 @app.get("/")
 def home():
     """landing page"""
-    return render_template("home.html"), 200
+    return render_template("register.html"), 200
 
 
 @app.get("/schedule-class")

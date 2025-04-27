@@ -1,0 +1,43 @@
+{% extends "login.html"%}
+{% block title %}Register | The plug Trading{% endblock %}
+{% block form_container %}
+<img style="width: 100px; display: block; margin: 0 auto;" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="">
+<h1 class="text-gray-800 font-bold text-2xl mb-1">Welcome to Thee Plug FX</h1>
+<p class="text-sm font-normal text-gray-600 mb-7">Register</p>
+
+{% for message in get_flashed_messages() %}
+    <div class="flash mb-3" style="text-align: center; color: crimson;">{{ message }}</div>
+{% endfor %}
+
+<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+    <i class="fa-solid fa-at"></i>
+    <input class="pl-2 w-full outline-none border-none" type="email" name="email" placeholder="Email" required />
+</div>
+
+<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+    <i class="fa-solid fa-circle-user"></i>
+    <input class="pl-2 w-full outline-none border-none" type="text" name="lname" maxlength="8" placeholder="Last Name" required/>
+</div>
+
+
+<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+    <i class="fa-solid fa-lock"></i>
+    <input class="pl-2 w-full outline-none border-none" type="password" name="password" id="password" placeholder="Password-alphanumeric" maxlength="16" required/>
+    <div class="ml-2 cursor-pointer" id="visibility">
+        <i class="fa-regular fa-eye-slash ml-2" id="v_slash" style="display: none;"></i>
+        <i class="fa-regular fa-eye" id="v_plain" style="display: block;"></i>
+    </div>
+</div>
+<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+    <i class="fa-solid fa-lock"></i>
+    <input class="pl-2 w-full outline-none border-none" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" maxlength="16" required/>
+</div>
+
+<div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-1">
+    <input id="locationInput" class="pl-2 w-full outline-none border-none" type="text" name="location" placeholder="Click location link below" required readonly/>
+</div>
+<p style="color: blue; text-decoration: underline; cursor: pointer;" onclick="getLocation()">Get my location</p>
+
+<button type="submit" class="block w-full bg-green-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Register</button>
+<span class="text-sm ml-2 cursor-pointer">Already have an account?  <a href="#" style="color: blue;">login</a></span>
+{% endblock %}
