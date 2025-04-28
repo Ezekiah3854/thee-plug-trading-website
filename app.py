@@ -93,7 +93,7 @@ def login():
         cursor.close()
         db.close()
         flash("Server failure. Retry")
-        return render_template("register.html")
+        return render_template("register.html", location_token=location_token)
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -117,7 +117,7 @@ def user_registration():
 
             if result is not None:
                 flash(result)
-                return render_template("register.html")
+                return render_template("register.html", location_token=location_token)
 
             # encode password
             password = password.encode()
@@ -142,7 +142,7 @@ def user_registration():
         cursor.close()
         db.close()
         flash("User email already exists.")
-        return render_template("register.html")
+        return render_template("register.html", location_token=location_token)
 
 
 @app.get("/logout")
