@@ -2,6 +2,8 @@
 
 import os
 import datetime
+import bcrypt
+import mysql.connector
 from flask import Flask, render_template, session, request, redirect, url_for, flash
 from dotenv import load_dotenv
 from functions import connect_db, validate_user_data
@@ -24,25 +26,25 @@ app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 @app.get("/")
 def home():
     """landing page"""
-    return render_template("home.html", location_token=location_token), 200
+    return render_template("home.html", location_token=location_token)
 
 
 @app.get("/schedule-class")
 def schedule_class():
     """schedule class page"""
-    return render_template("class.html"), 200
+    return render_template("class.html")
 
 
 @app.get("/brokers")
 def get_broker():
     """brokers page"""
-    return render_template("brokers.html"), 200
+    return render_template("brokers.html")
 
 
 @app.get("/available-bots")
 def available_bots():
     """available bots page"""
-    return render_template("available_bots.html"), 200
+    return render_template("available_bots.html")
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -71,21 +73,27 @@ def login():
                 flash("User does not exit.")
                 return render_template("login.html")
 
-            # encrypt password: TODO
-            if password != user[0]:
+            db_password = user[0].encode()
+            print(db_password)
+            # encode password
+            password = password.encode()
+            # check password hashes:
+
+            if not bcrypt.checkpw(password, db_password):
                 flash("Incorrect password")
                 return render_template("login.html")
-
+            print("ok upto password check")
             session.clear()
             session["lname"] = user[1]
             cursor.close()
             db.close()
             return redirect(url_for("home"))
-        return render_template("login.html"), 200
-    except Exception as e:
+        return render_template("login.html")
+    except TypeError:
         cursor.close()
         db.close()
-        return e
+        flash("Server failure. Retry")
+        return render_template("register.html")
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -109,7 +117,12 @@ def user_registration():
 
             if result is not None:
                 flash(result)
-                return render_template("register.html"), 200
+                return render_template("register.html")
+
+            # encode password
+            password = password.encode()
+            # encryp password
+            password = bcrypt.hashpw(password, bcrypt.gensalt(12))
 
             # store user in db
             query = "INSERT INTO users(fname, lname, email, password, country)VALUES(%s, %s, %s, %s, %s)"
@@ -118,9 +131,22 @@ def user_registration():
             cursor.close()
             db.close()
             print("user created in db")
-            return redirect(url_for("login")), 200
+            return redirect(url_for("login"))
         return render_template("register.html", location_token=location_token), 200
     except TypeError as e:
         cursor.close()
         db.close()
-        return e
+        flash("Server failed. Retry.")
+        return f"Registration failed {e}"
+    except mysql.connector.IntegrityError:
+        cursor.close()
+        db.close()
+        flash("User email already exists.")
+        return render_template("register.html")
+
+
+@app.get("/logout")
+def logout() -> None:
+    """logout user"""
+    session.clear()
+    return render_template("home.html")

@@ -40,42 +40,42 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="/"><img class="logo-icon me-2" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="logo"></a>
+		            <a class="app-logo" href="{{ url_for('home') }}"><img class="logo-icon me-2" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="logo"></a>
 		        </div> 
 			    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
 					<ul class="app-menu list-unstyled accordion" id="menu-accordion">
 						<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/">
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('home') }}">
 								<span class="nav-icon"><i class="fa-solid fa-house"></i></span>
 								<span class="nav-link-text">Home</span>
 							</a>
 						</li>
                         			<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/available-bots">
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('available_bots') }}">
 								<span class="nav-icon"><i class="fa-brands fa-bots"></i></span>
 								<span class="nav-link-text">Available Bots</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/schedule-class">
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('schedule_class') }}">
 								<span class="nav-icon"><i class="fa-solid fa-calendar-days"></i></span>
 								<span class="nav-link-text">Schedule Class</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/brokers">
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('get_broker') }}">
 								<span class="nav-icon"><i class="fa-solid fa-handshake"></i></span>
 								<span class="nav-link-text">Brokers</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/login">
-								<span class="nav-icon"><i class="fa-solid fa-right-to-bracket"></i></i></span>
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('login') }}">
+								<span class="nav-icon"><i class="fa-solid fa-right-to-bracket"></i></span>
 								<span class="nav-link-text">Login</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" style="font-size: large;" href="/signup">
+							<a class="nav-link" style="font-size: large;" href="{{ url_for('user_registration' )}}">
 								<span class="nav-icon"><i class="fa-solid fa-user-plus"></i></span>
 								<span class="nav-link-text">Sign up</span>
 							</a>
@@ -89,7 +89,7 @@
 						    <li class="nav-item">
 						        <footer class="app-footer">
 									<div class="container ">
-										 <a class="nav-link" style="font-size: large;" href="/logout">
+										 <a class="nav-link" style="font-size: large;" href="{{ url_for('logout') }}">
 											<span class="nav-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
 											<span class="nav-link-text">Logout</span>
 										</a>
