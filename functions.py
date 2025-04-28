@@ -26,3 +26,8 @@ def connect_db(user=USER, database=DATABASE, host=HOST, password=PASSWORD):
         mysql.connector.DatabaseError
     ) as e:
         return f"Connection Failed: {e}"
+
+def validate_user_data():
+    """validate user inputs upon registration and login"""
+    
+    pass

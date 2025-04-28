@@ -19,6 +19,11 @@ class TestRoutes(unittest.TestCase):
         """home route"""
         res = requests.get("http://127.0.0.1:5000/", timeout=10)
         self.assertEqual(200, res.status_code)
+    
+    def test_user_registration(self):
+        """user registration"""
+        res = requests.get("http://127.0.0.1:5000/register", timeout=10)
+        self.assertEqual(200, res.status_code)
 
 class TestFunctions(unittest.TestCase):
     """test helper functions"""

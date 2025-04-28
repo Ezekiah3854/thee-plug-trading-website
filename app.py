@@ -2,7 +2,7 @@
 
 import os
 import datetime
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, request
 from dotenv import load_dotenv
 
 # load environment variables
@@ -18,7 +18,7 @@ app.permanent_session_lifetime = datetime.timedelta(minutes=30)
 @app.get("/")
 def home():
     """landing page"""
-    return render_template("register.html"), 200
+    return render_template("home.html"), 200
 
 
 @app.get("/schedule-class")
@@ -35,3 +35,11 @@ def get_broker():
 def available_bots():
     """available bots page"""
     return render_template("available_bots.html"), 200
+
+@app.route("/register", methods=['GET', 'POST'])
+def user_registration():
+    """register a user"""
+    if request.method == "POST":
+        # do something
+        pass
+    return render_template('register.html')
