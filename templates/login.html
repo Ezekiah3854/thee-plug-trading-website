@@ -46,7 +46,8 @@
                 </div>
                 
                 <button type="submit" class="block w-full bg-green-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Login</button>
-                <span class="text-sm ml-2 cursor-pointer">Don't have an account?  <a href="#" style="color: blue;">register</a></span>
+                <span class="text-sm ml-2 cursor-pointer">Don't have an account?  <a href="{{ url_for('register') }}" style="color: blue;">register</a></span>
+                {% endblock %}
             </form>
             {% endblock %}
         </div>
@@ -73,17 +74,18 @@
         }
     });
 
-
+let location_token = "{{location_token}}"; 
 function getLocation() {
     // Fetch the user's location using the ipinfo API
-    fetch('https://ipinfo.io/json?token=my_token')
+    fetch(`https://ipinfo.io/json?token=${location_token}`)
         .then(response => response.json())
         .then(data => {
             // Set the value of the input field to the country name
             document.getElementById('locationInput').value = data.country;
-            console.log(data); // Optional: see full details in console
+            console.log(data); // see full details in console
         })
         .catch(error => {
+            // Handle any errors that occur during the fetch
             console.error('Error fetching location:', error);
         });
 }
