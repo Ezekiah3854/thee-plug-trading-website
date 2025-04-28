@@ -4,6 +4,7 @@ import os
 import datetime
 from flask import Flask, render_template, session, request, redirect, url_for, flash
 from dotenv import load_dotenv
+from functions import connect_db, validate_user_data
 
 # load environment variables
 load_dotenv(".env")
@@ -31,39 +32,95 @@ def schedule_class():
     """schedule class page"""
     return render_template("class.html"), 200
 
+
 @app.get("/brokers")
 def get_broker():
     """brokers page"""
     return render_template("brokers.html"), 200
+
 
 @app.get("/available-bots")
 def available_bots():
     """available bots page"""
     return render_template("available_bots.html"), 200
 
+
 @app.route("/login", methods=["POST", "GET"])
 def login():
     """login page"""
-    if request.method == "POST":
-        # get the form data
-        email = request.form["email"]
-        password = request.form["password"]
+    db = connect_db()
+    cursor = db.cursor()
+    try:
+        if request.method == "POST":
+            # get the form data
+            email = request.form["email"]
+            password = request.form["password"]
 
-        # check if the user is valid
-        if email == "nyagwayaezekiah@gmail.com" and password == "zack3854?":
-            session["user"] = email
+            # validate inputs
+            result = validate_user_data(email=email, password=password)
+
+            if result is not None:
+                flash(result)
+                return redirect(url_for("login"))
+
+            query = "SELECT password, lname FROM users WHERE email = %s"
+            cursor.execute(query, [email])
+            user = cursor.fetchone()
+
+            if user is None:
+                flash("User does not exit.")
+                return render_template("login.html")
+
+            # encrypt password: TODO
+            if password != user[0]:
+                flash("Incorrect password")
+                return render_template("login.html")
+
+            session.clear()
+            session["lname"] = user[1]
+            cursor.close()
+            db.close()
             return redirect(url_for("home"))
-        else:
-            flash("Invalid username or password")
-            # return to the login page with an error message
-            return render_template("login.html"), 401
+        return render_template("login.html"), 200
+    except Exception as e:
+        cursor.close()
+        db.close()
+        return e
 
-    return render_template("login.html"), 200
 
 @app.route("/register", methods=["POST", "GET"])
-def register():
+def user_registration():
     """register page"""
-    if request.method == "POST":
-        """register the user"""
+    db = connect_db()
+    cursor = db.cursor()
+    try:
+        if request.method == "POST":
+            fname = request.form.get("fname")
+            lname = request.form.get("lname")
+            email = request.form.get("email")
+            password = request.form.get("password")
+            confirm_password = request.form.get("confirm_password")
+            location = request.form.get("location")
 
-    return render_template("register.html", location_token=location_token), 200
+            # validate inputs
+            result = validate_user_data(
+                email, password, confirm_password, fname, lname, location
+            )
+
+            if result is not None:
+                flash(result)
+                return render_template("register.html"), 200
+
+            # store user in db
+            query = "INSERT INTO users(fname, lname, email, password, country)VALUES(%s, %s, %s, %s, %s)"
+            cursor.execute(query, [fname, lname, email, password, location])
+            db.commit()
+            cursor.close()
+            db.close()
+            print("user created in db")
+            return redirect(url_for("login")), 200
+        return render_template("register.html", location_token=location_token), 200
+    except TypeError as e:
+        cursor.close()
+        db.close()
+        return e
