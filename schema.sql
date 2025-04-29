@@ -1,7 +1,7 @@
 -- dbms -> postgresql
 createdb crypto_plug;
 psql crypto_plug;
-CREATE TABLE IF NOT EXISTS users(
+CREATE TABLE IF NOT EXISTS crypto_plug_users(
     id SERIAL PRIMARY KEY,
     fname VARCHAR(100),
     lname VARCHAR(100),
@@ -15,14 +15,14 @@ CREATE TABLE IF NOT EXISTS class(
     start_time TIMESTAMP,
     end_time TIMESTAMP,
     user_id INT NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    FOREIGN KEY(user_id) REFERENCES crypto_plug_users(id)
 );
 CREATE TABLE IF NOT EXISTS brokers(
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     refferal_link TEXT,
     user_id INT NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    FOREIGN KEY(user_id) REFERENCES crypto_plug_users(id)
 );
 -- CREATE USER IF NOT EXISTS 'admin_trader'@'localhost' IDENTIFIED BY '(PlugTrader2025)';
 -- GRANT ALL PRIVILEGES ON crypto_plug.* TO 'admin_trader'@'localhost';

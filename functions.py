@@ -1,29 +1,33 @@
 """helper functions"""
 
 import os
+from urllib.parse import urlparse
 from dotenv import load_dotenv
-import mysql.connector
+import psycopg2
 
 load_dotenv(".env")
 
 # environment variables
-DATABASE = os.getenv("DATABASE")
-USER = os.getenv("USER")
-HOST = os.getenv("HOST")
-PASSWORD = os.getenv("PASSWORD")
+DATABASE_URL = os.getenv("DATABASE")
 
 
-def connect_db(user=USER, database=DATABASE, host=HOST, password=PASSWORD):
+def connect_db():
     """connect database"""
+    result = urlparse(DATABASE_URL)
     try:
-        conn = mysql.connector.connect(
-            user=user, database=database, host=host, password=password
+        connection = psycopg2.connect(
+            host=result.hostname,
+            port=result.port,
+            dbname=result.path[1:],
+            user=result.username,
+            password=result.password,
         )
-        return conn
+        print("db connected")
+        return connection
     except (
-        mysql.connector.InterfaceError,
-        mysql.connector.ProgrammingError,
-        mysql.connector.DatabaseError,
+        psycopg2.InterfaceError,
+        psycopg2.ProgrammingError,
+        psycopg2.DatabaseError
     ) as e:
         return f"Connection Failed: {e}"
 

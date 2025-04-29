@@ -2,8 +2,8 @@
 
 import os
 import datetime
-import bcrypt
-import mysql.connector
+from werkzeug.security import check_password_hash, generate_password_hash
+import psycopg2
 from flask import Flask, render_template, session, request, redirect, url_for, flash
 from dotenv import load_dotenv
 from functions import connect_db, validate_user_data
@@ -65,7 +65,7 @@ def login():
                 flash(result)
                 return redirect(url_for("login"))
 
-            query = "SELECT password, lname FROM users WHERE email = %s"
+            query = "SELECT password, lname FROM crypto_plug_users WHERE email = %s"
             cursor.execute(query, [email])
             user = cursor.fetchone()
 
@@ -73,13 +73,9 @@ def login():
                 flash("User does not exit.")
                 return render_template("login.html")
 
-            db_password = user[0].encode()
-            print(db_password)
-            # encode password
-            password = password.encode()
-            # check password hashes:
+            db_password = user[0]
 
-            if not bcrypt.checkpw(password, db_password):
+            if not check_password_hash(db_password, password):
                 flash("Incorrect password")
                 return render_template("login.html")
             print("ok upto password check")
@@ -120,14 +116,12 @@ def user_registration():
             if result is not None:
                 flash(result)
                 return render_template("register.html", location_token=location_token)
-
-            # encode password
-            password = password.encode()
+            
             # encryp password
-            password = bcrypt.hashpw(password, bcrypt.gensalt(12))
+            password = generate_password_hash(password)
 
             # store user in db
-            query = "INSERT INTO users(fname, lname, email, password, country)VALUES(%s, %s, %s, %s, %s)"
+            query = "INSERT INTO crypto_plug_users(fname, lname, email, password, country)VALUES(%s, %s, %s, %s, %s)"
             cursor.execute(query, [fname, lname, email, password, location])
             db.commit()
             cursor.close()
@@ -140,7 +134,7 @@ def user_registration():
         db.close()
         flash("Server failed. Retry.")
         return f"Registration failed {e}"
-    except mysql.connector.IntegrityError:
+    except psycopg2.IntegrityError:
         cursor.close()
         db.close()
         flash("User email already exists.")

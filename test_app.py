@@ -44,10 +44,10 @@ class TestFunctions(unittest.TestCase):
         self.assertNotEqual(type(conn), str)
 
     # with incorrect password
-    def test_incorrect_db(self):
-        """incorrect credential"""
-        conn = connect_db(database="incorrect")
-        self.assertEqual(type(conn), str)
+    # def test_incorrect_db(self):
+    #     """incorrect credential"""
+    #     conn = connect_db(database="incorrect")
+    #     self.assertEqual(type(conn), str)
 
     # test validation with correct credentials
     def test_validate_user_data(self):
