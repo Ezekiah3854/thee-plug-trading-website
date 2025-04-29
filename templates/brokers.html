@@ -1,0 +1,62 @@
+{% extends "home.html"%}
+{% block title %}Brokers | The plug Trading{% endblock %}
+{% block content %}
+<!-- showing all the brokers that clients can use to trade on the platform. -->
+ <!-- broker 1 -->
+    <div class="class-container">
+        <div class="bot-container">
+            <img src="{{ url_for('static', filename='img/OANDA-logo.jpg') }}" alt="icon1">
+            <div style="margin: 1em;">
+                <h5>OANDA</h5>
+                <p>A highly regarded broker offering competitive spreads, fast execution, and a user-friendly platform. It supports MT4, TradingView, and OANDA Trade
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- broker 2 -->
+    <div class="class-container">
+        <div class="bot-container">
+            <img src="{{ url_for('static', filename='img/forex.com-logo.jpg') }}" alt="icon1">
+            <div style="margin: 1em;">
+                <h5>FOREX.com</h5>
+                <p>Known for low spreads and a wide range of currency pairs. It provides MT4, MT5, and WebTrader platforms.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- broker 3 -->
+    <div class="class-container">
+        <div class="bot-container">
+            <img src="{{ url_for('static', filename='img/tastyfx-logo.jpg') }}" alt="icon1">
+            <div style="margin: 1em;">
+                <h5>Tastyfx</h5>
+                <p>A beginner-friendly broker with competitive spreads and an intuitive trading interface.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- broker 4 -->
+    <div class="class-container">
+        <div class="bot-container">
+            <img src="{{ url_for('static', filename='img/nadex-logo.jpg') }}" alt="icon1">
+            <div style="margin: 1em;">
+                <h5>Nadex</h5>
+                <p>Specializes in options trading for forex, allowing traders to speculate on price movements with defined risk.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- broker 5 -->
+    <div class="class-container">
+        <div class="bot-container">
+            <img src="{{ url_for('static', filename='img/trading.com-logo.jpeg') }}" alt="icon1">
+            <div style="margin: 1em;">
+                <h5>Trading.com</h5>
+                <p>A broker focused on MT5 trading, offering a streamlined experience for forex traders.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
