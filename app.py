@@ -2,7 +2,7 @@
 
 import os
 import datetime
-import bcrypt
+from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
 from flask import Flask, render_template, session, request, redirect, url_for, flash
 from dotenv import load_dotenv
@@ -32,18 +32,27 @@ def home():
 @app.get("/schedule-class")
 def schedule_class():
     """schedule class page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("class.html")
 
 
 @app.get("/brokers")
 def get_broker():
     """brokers page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("brokers.html")
 
 
 @app.get("/available-bots")
 def available_bots():
     """available bots page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("available_bots.html")
 
 
@@ -73,13 +82,9 @@ def login():
                 flash("User does not exit.")
                 return render_template("login.html")
 
-            db_password = user[0].encode()
-            print(db_password)
-            # encode password
-            password = password.encode()
-            # check password hashes:
+            db_password = user[0]
 
-            if not bcrypt.checkpw(password, db_password):
+            if not check_password_hash(db_password, password):
                 flash("Incorrect password")
                 return render_template("login.html")
             print("ok upto password check")
@@ -121,10 +126,8 @@ def user_registration():
                 flash(result)
                 return render_template("register.html", location_token=location_token)
 
-            # encode password
-            password = password.encode()
             # encryp password
-            password = bcrypt.hashpw(password, bcrypt.gensalt(12))
+            password = generate_password_hash(password)
 
             # store user in db
             query = "INSERT INTO users(fname, lname, email, password, country)VALUES(%s, %s, %s, %s, %s)"
