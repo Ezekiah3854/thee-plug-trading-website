@@ -20,7 +20,7 @@ print("location token: ", location_token)
 
 # config sessions
 app.secret_key = os.getenv("SECRET")
-app.permanent_session_lifetime = datetime.timedelta(minutes=30)
+app.permanent_session_lifetime = datetime.timedelta(minutes=45)
 
 
 @app.get("/")
@@ -83,6 +83,8 @@ def login():
                 flash("Incorrect password")
                 return render_template("login.html")
             print("ok upto password check")
+
+            # assign session
             session.clear()
             session["lname"] = user[1]
             cursor.close()
@@ -149,4 +151,4 @@ def user_registration():
 def logout() -> None:
     """logout user"""
     session.clear()
-    return render_template("home.html")
+    return redirect(url_for('home'))
