@@ -1,8 +1,4 @@
-/*!
-* Bootstrap  v5.3.3 (https://getbootstrap.com/)
-* Copyright 2011-2024 The Bootstrap Authors
-* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-*/:root {
+:root {
     --bs-primary-rgb: 21, 163, 98;
     --bs-secondary-rgb: 93, 103, 120;
     --bs-white-rgb: 255, 255, 255;
@@ -126,7 +122,8 @@ img,svg {
     padding-right:calc(var(--bs-gutter-x)*.5);
     padding-left:calc(var(--bs-gutter-x)*.5);
     margin-right:auto;
-    margin-left:auto
+    margin-left:auto;
+    
 }
 
 
@@ -337,10 +334,6 @@ width: auto;}
 .text-center {
     text-align:center !important
 }
-.text-primary {
-    --bs-text-opacity: 1;
-    color:rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important
-}
 
 .rounded {
     border-radius:var(--bs-border-radius) !important
@@ -372,7 +365,7 @@ body {
     color:#5d6778
 }
 h4,.h4 {
-    color:#252930;
+    color:rgb(118, 183, 240);
     font-weight:600
 }
 a {
@@ -380,11 +373,9 @@ a {
     text-decoration:none
 }
 a:hover {
-    color:#128c54
+    color:#6686f0
 }
-hr {
-    background:#adb4c0
-}
+
 h4,.h4 {
     font-size:1.5rem
 }
@@ -412,8 +403,8 @@ h4,.h4 {
 .app-header {
     box-shadow:0 1px 4px 0 rgba(0,0,0,.1);
     border-bottom:1px solid #e7e9ed;
-    
-    background:#fff
+    background-color: rgb(6, 6, 94);
+    color:#fff;
 }
 .app-header-inner {
     position:relative
@@ -464,15 +455,19 @@ h4,.h4 {
     left:0;
     top:0;
     font-size:.875rem;
-    border-right:1px solid #e7e9ed
+    border-right:1px solid #e7e9ed;
+    background-color: rgb(6, 6, 94);
+    color:#fff;
+
 }
 .app-sidepanel .sidepanel-inner {
     position:relative;
     z-index:10;
-    background:#fff;
     box-shadow:rgba(0,0,0,.05) 0px 8px 15px;
     width:250px;
-    height:100%
+    height:100%;
+    
+
 }
 .app-sidepanel .sidepanel-close {
     display:none;
@@ -492,11 +487,12 @@ h4,.h4 {
 .app-sidepanel .app-nav-main {
     overflow-y:auto;
     scrollbar-color:rgba(0,0,0,.1) #e7e9ed;
-    scrollbar-width:thin
+    scrollbar-width:thin;
+    background-color: rgb(6, 6, 94);
+    color:#fff;
 }
 .app-sidepanel .app-nav-main::-webkit-scrollbar {
     width:6px;
-    background-color:#e7e9ed
 }
 .app-sidepanel .app-nav-main::-webkit-scrollbar-thumb {
     background-color:rgba(0,0,0,.1);
@@ -504,13 +500,14 @@ h4,.h4 {
 }
 .app-branding {
     height:60px;
-    padding-top:1rem;
-    padding-left:1rem;
-    margin-bottom:1rem
+    display: block;
+    margin: 2em auto;
 }
 .app-branding .logo-icon {
-    width:36px;
-    height:36px
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+    
 }
 
 .app-nav {
@@ -525,7 +522,7 @@ h4,.h4 {
 .app-nav .nav-item {
     display:block;
     color:#5d6778;
-    background:#fff
+    background-color: rgb(6, 6, 94);
 }
 .app-nav .nav-link {
     display:block;
@@ -534,10 +531,12 @@ h4,.h4 {
     position:relative;
     display:block;
     padding-left:3rem;
-    border-left:3px solid rgba(0,0,0,0)
+    border-left:3px solid rgba(0,0,0,0);
+    color:#fff;
+
 }
 .app-nav .nav-link:hover {
-    color:#15a362
+    color:#a5adf3
 }
 .app-nav .nav-icon {
     position:absolute;
@@ -605,7 +604,9 @@ h4,.h4 {
 }
 /* styling app wrapper with transition */
 .app-wrapper {
-    transition:all .4s ease-in-out
+    background-color: rgb(6, 6, 94);
+    transition:all .4s ease-in-out;
+    color: #fff;
 }
 @media(prefers-reduced-motion: reduce) {
     .app-wrapper {
@@ -616,9 +617,9 @@ h4,.h4 {
 /* Styling schedule class page */
 .class-container {
     padding: 2em;
-    background-color: #f5f6fe;
+    opacity: 0.9;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 8px rgba(233, 234, 238, 0.3);
     margin: 1em 0;
 }
 
@@ -646,6 +647,40 @@ h4,.h4 {
     .class-container .bot-container img {
         display: block;
         margin: 0 auto; /* Centers the image */
+    }
+}
+
+/* home container styling */
+@media (max-width: 420px) {
+    .app-wrapper #home_container {
+        padding-top: 4em;
+    }
+    
+    .app-wrapper #home_container h1{
+        font-size: 3em; 
+        font-weight: 500;
+    }
+}
+
+@media (min-width: 420px) and (max-width: 750px) {
+    .app-wrapper #home_container {
+        padding-top: 6em;
+    }
+
+    .app-wrapper #home_container h1{
+        font-size: 3em; 
+        font-weight: 650;
+    }
+}
+
+@media (min-width: 750px) {
+    .app-wrapper #home_container {
+        padding-top: 7em;
+    }
+
+    .app-wrapper #home_container h1{
+        font-size: 4em; 
+        font-weight: 700;
     }
 }
 

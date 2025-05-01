@@ -32,18 +32,27 @@ def home():
 @app.get("/schedule-class")
 def schedule_class():
     """schedule class page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("class.html")
 
 
 @app.get("/brokers")
 def get_broker():
     """brokers page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("brokers.html")
 
 
 @app.get("/available-bots")
 def available_bots():
     """available bots page"""
+    if session.get('lname') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
     return render_template("available_bots.html")
 
 
@@ -116,7 +125,9 @@ def user_registration():
             if result is not None:
                 flash(result)
                 return render_template("register.html", location_token=location_token)
-            
+
+            # encode password
+            password = password.encode()
             # encryp password
             password = generate_password_hash(password)
 
