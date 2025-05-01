@@ -18,18 +18,17 @@
                 <div class="app-header-content"> 
                     <div class="row justify-content-between align-items-center py-2">
                         <div class="col-auto">
-                            <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none p-md-3" style="cursor: pointer;">
+                            <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none p-md-3" style="cursor: pointer; color: #fff;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
                             </a>
-                            <p style="font-size: larger; font-weight: 700; padding-left: 2ex; position: relative;" >Thee Plug FX</p>
+                            <p style="font-size: larger; font-weight: 700; padding-left: 2ex; position: relative;" >Masterplan FX</p>
 
                         </div>
                         <div class="app-utilities col-auto">
 							
                             <div class="app-utility-item app-user-dropdown dropdown" style="display: flex;">
 								{% if session.lname %}
-									<p class="py-2" style="margin-right: 1em;">Greetings {{ session.lname }}</p>
-									<img src="{{ url_for('static', filename='img/youngprince.jpg') }}" alt="user profile">
+									<p class="py-2" style="margin-right: 1em;">Greetings, {{ session.lname }}</p>
 								{% endif %}
                             </div>
                         </div>
@@ -114,53 +113,77 @@
 		    <div class="container-xl">
 			    <main role="main" class="pb-3">
 					{% block content%}
-					<div class="container onprintContainer">
-						<div class="container my-3 py-3" id="product">
-							<div class="row align-items-center shadow p-4 rounded">
-								<!-- Image -->
-								<div class="col-lg-5 text-center">
-									<img src="{{ url_for('static', filename='img/trading_bot.jpg') }}" class="img-fluid rounded shadow-sm" alt="product">
+						<section class="container text-center" id="home_container">
+							<h1 class="mb-4">Built by Traders <br>
+								<i class="fa-solid fa-arrow-right"></i> for Traders</h1>
+							<span>Trade like never before in Masterplan FX.</span><br>
+							<button type="button" class="btn btn-primary mt-4"><i class="fa-brands fa-instagram me-2"></i>Join us on instagram</button>
+						</section>
+						<section>
+							<div class="class-container bg-transparent">
+								<div class="container text-center mt-5">
+									<h2 class="mb-4">Why choose us?</h2>
+									<p>We are a team of experienced traders who have developed a platform that is designed to help you succeed in the world of trading. Our platform is user-friendly, secure, and offers a wide range of features to help you make informed trading decisions.</p>
 								</div>
-					
-								<!-- Text Content -->
-								<div class="col-lg-7">
-									<h4 class="fw-bold text-primary my-3">Bots</h4>
-									<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id quae molestias excepturi distinctio quas eaque nesciunt ex est, cupiditate veritatis. Vitae, ullam rem fugiat iusto itaque quas modi accusamus. Earum.</p>
+								<div class="container text-center mt-5">
+									<h2 class="mb-5">Our Services</h2>
+									<p class="">We offer a range of services to help you succeed in the world of trading. Our services include:</p>
+									
+									<div class="row justify-content-center">
+										<div class="col-md-6">
+											<ul class="list-group-flush ">
+												<li class="list-group-item my-3">📈 Market Analysis</li>
+												<li class="list-group-item my-3">🤖 Trading Bots</li>
+												<li class="list-group-item my-3">📚 Educational Resources</li>
+												<li class="list-group-item my-3">🔧 24/7 Customer Support</li>
+											</ul>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					
-						<div class="container my-3 py-3" id="product">
-							<div class="row align-items-center shadow p-4 rounded">
-								<!-- Image -->
-								<div class="col-lg-5 text-center">
-									<img src="{{ url_for('static', filename='img/class_img.jpg') }}" class="img-fluid rounded shadow-sm" alt="product">
-								</div>
-					
-								<!-- Text Content -->
-								<div class="col-lg-7">
-									<h4 class="fw-bold text-primary my-3">Classes</h4>
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, facere corrupti voluptatum atque tenetur dolorum exercitationem architecto aut amet sapiente nostrum odio aliquam debitis a ex veritatis, est blanditiis qui.</p>
-								</div>
-							</div>
-						</div>
-					
-						<div class="container my-3 py-3" id="product">
-							<div class="row align-items-center shadow p-4 rounded">
-								<!-- Image -->
-								<div class="col-lg-5 text-center">
-									<img src="{{ url_for('static', filename='img/sign_trading.png') }}" class="img-fluid rounded shadow-sm" alt="product">
-								</div>
-					
-								<!-- Text Content -->
-								<div class="col-lg-7">
-									<h4 class="fw-bold text-primary my-3">Trading</h4>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam maxime ratione iste possimus ipsam necessitatibus fugit minus consectetur vel amet veritatis animi voluptate temporibus, officiis at! Corrupti laborum necessitatibus placeat.</p>
-			
+	
+								<div class="container text-center mt-4">
+									<h1 class="mb-4">Your solution to trading challenges</h1>
+									<p>You deserve the best, and at Funded Elite, we prioritize your growth and success!</p>
+									<p style="color: lightslategray;">We are committed to providing you with the tools and resources you need to succeed in the world of trading. Our platform is designed to help you make informed trading decisions and achieve your financial goals.</p>
 								</div>
 							</div>
-						</div>
-					</div>
+		
+						</section>	
+
+						<section class="mb-5">
+							<h1 class="text-center">How Masterplan Fx Works...</h1>
+							<!-- phase 1 -->
+							<div class="class-container bg-transparent">
+								<h4 style="color: #fff;">Phase 1</h4>
+								<p>In this phase, Once you've invested into Masterplan for us to trade on you behalf, you get <strong>60%</strong> of the profit after trading. That amount goes directly to you account.</p>
+								
+							</div>
+
+							<!-- phase 2 -->
+							<div class="class-container bg-transparent">
+								<h4 style="color: #fff;">Phase 2</h4>
+								<p>If you again invest with us for the second time, you get <strong>69%</strong> of the profit after trading.</p>
+							</div>
+
+							<!-- phase 3 -->
+							<div class="class-container bg-transparent">
+								<h4 style="color: #fff;">Phase 3</h4>
+								<p>Since you are a MAsterplan FX member, you are given a profit share of <strong>82%</strong> of the profit after trading. This profit share will now be consistent in all your invest going forward.</p>
+						</section>
+
+						<section class="text-center">
+							<div class="py-6 ">
+								<h3>Select your Account Size</h3>
+								<div class="btn-group mt-3" role="group" aria-label="Basic outlined example">
+									<button type="button" class="btn btn-outline-primary">$100 - $1000</button>
+									<button type="button" class="btn btn-outline-primary">$1001 - $10000</button>
+									<button type="button" class="btn btn-outline-primary">$10001 - $100000</button>
+								</div>
+							</div>
+							
+							
+						</section>
+
 					{% endblock%}
 				</main>
                 
