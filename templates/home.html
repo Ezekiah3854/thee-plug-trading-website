@@ -24,13 +24,19 @@
                             <p style="font-size: larger; font-weight: 700; padding-left: 2ex; position: relative;" >Masterplan FX</p>
 
                         </div>
+						
                         <div class="app-utilities col-auto">
-							
-                            <div class="app-utility-item app-user-dropdown dropdown" style="display: flex;">
-								{% if session.lname %}
-									<p class="py-2" style="margin-right: 1em;">Greetings, {{ session.lname }}</p>
-								{% endif %}
-                            </div>
+							{% if session.lname %}
+								<div class="dropdown">
+									<i class="fa-solid fa-circle-chevron-down px-2" style="font-size: x-large;" data-bs-toggle="dropdown" aria-expanded="false"></i>
+									
+									<ul class="dropdown-menu p-md-4">
+										<img src="{{ url_for('static', filename='img/youngprince.jpg') }}" style="width: 40px; height: 40px; display: flex; margin: 0 auto; " alt="user profile">
+
+										<li><a class="dropdown-item" href="#">Hi, {{ session.lname }}</a></li>
+									</ul>
+								</div>
+							{% endif %}
                         </div>
                     </div>
                 </div>
@@ -117,7 +123,7 @@
 							<h1 class="mb-4">Built by Traders <br>
 								<i class="fa-solid fa-arrow-right"></i> for Traders</h1>
 							<span>Trade like never before in Masterplan FX.</span><br>
-							<button type="button" class="btn btn-primary mt-4"><i class="fa-brands fa-instagram me-2"></i>Join us on instagram</button>
+							<a href="https://www.instagram.com/theeplug_ke?igsh=YzljYTk1ODg3Zg=="><button type="button" class="btn btn-primary mt-4"><i class="fa-brands fa-instagram me-2"></i>Join us on instagram</button></a>
 						</section>
 						<section>
 							<div class="class-container bg-transparent">
