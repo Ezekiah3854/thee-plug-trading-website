@@ -2,10 +2,10 @@
 {% extends "login.html"%}
 {% block title %}Register | The plug Trading{% endblock %}
 {% block container %}
-    <form class="bg-white w-2/3" method="post" action="{{ url_for('user_registration') }}">
-        <img style="width: 100px; display: block; margin: 0 auto;" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="">
-        <h1 class="text-gray-800 font-bold text-2xl mb-1">Welcome to Thee Plug FX</h1>
-        <p class="text-sm font-normal text-gray-600 mb-7">Register</p>
+    <form class="bg-transparent w-2/3" method="post" action="{{ url_for('user_registration') }}">
+        <img style="width: 100px; display: block; margin: 0 auto; border-radius: 50%;" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="">
+        <h1 class="text-gray-800 font-bold text-2xl mb-1 py-3">Welcome to Thee Plug FX</h1>
+        <p class="text-lg font-normal text-white-600 mb-7">Register</p>
 
         {% for message in get_flashed_messages() %}
             <div class="flash mb-3" style="text-align: center; color: crimson;">{{ message }}</div>
@@ -41,10 +41,10 @@
         </div>
 
         <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-1">
-            <input id="locationInput" class="pl-2 w-full outline-none border-none" type="text" name="location" placeholder="country" required readonly/>
+            <input id="locationInput" class="pl-2 w-full outline-none border-none" type="text" name="location" placeholder="country - click the link below" required readonly/>
         </div>
-        <p style="color: blue; text-decoration: underline; cursor: pointer;" onclick="getLocation()">Get my location</p>
+        <p style="color: white; text-decoration: underline; cursor: pointer;" onclick="getLocation()">Get my location</p>
 
-<button type="submit" class="block w-full bg-green-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Register</button>
-<span class="text-sm ml-2 cursor-pointer">Already have an account?  <a href="{{ url_for('login') }}" style="color: blue;">login</a></span>
+<button type="submit" class="block w-full bg-blue-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Register</button>
+<span class="text-sm ml-2 cursor-pointer">Already have an account?  <a href="{{ url_for('login') }}" style="color: #fff;">login</a></span>
 {% endblock %}

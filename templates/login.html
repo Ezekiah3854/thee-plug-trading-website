@@ -13,19 +13,19 @@
 
 </head>
 <body>
-    <div class="h-screen md:flex">
+    <div class="h-screen md:flex" style="background: rgb(61, 61, 175); color: #fff;">
         <div style="background-image: url(../static/img/login-page-img.jpg); background-size: cover; background-position: center;" class="hidden md:flex w-1/2 justify-around items-center">
             <div class="p-lg-4">
-                <h1 class="text-white font-bold text-4xl font-sans">Thee Plug FX</h1>
+                <h1 class="text-white font-bold text-4xl font-sans">Masterplan FX</h1>
                 <p class="text-white mt-1">Empower your trading journey with cutting-edge strategies and real-time insights. </p>
             </div>            
         </div>
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
+        <div class="flex md:w-1/2 justify-center py-10 items-center">
             {% block container %}
-            <form class="bg-white w-2/3" method="post" action="{{ url_for('login') }}">
-                <img style="width: 100px; display: block; margin: 0 auto;" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="">
-                <h1 class="text-gray-800 font-bold text-2xl mb-1">Welcome to Thee Plug FX</h1>
-                <p class="text-sm font-normal text-gray-600 mb-7">Login</p>
+            <form class="bg-transparent w-2/3" method="post" action="{{ url_for('login') }}">
+                <img style="width: 100px; display: block; margin: 0 auto; border-radius: 50%;" src="{{ url_for('static', filename='img/thee_plug_logo.jpg') }}" alt="">
+                <h1 class="text-gray-800 font-bold text-2xl mb-1 py-4">Welcome to Masterplan FX</h1>
+                <p class="text-md font-normal text-gray-600 mb-7 text-white">Login</p>
 
                 {% for message in get_flashed_messages() %}
                     <div class="flash mb-3" style="text-align: center; color: crimson;">{{ message }}</div>
@@ -45,8 +45,8 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="block w-full bg-green-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Login</button>
-                <span class="text-sm ml-2 cursor-pointer">Don't have an account?  <a href="{{ url_for('user_registration') }}" style="color: blue;">register</a></span>
+                <button type="submit" class="block w-full bg-blue-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Login</button>
+                <span class="text-sm ml-2 cursor-pointer">Don't have an account?  <a href="{{ url_for('user_registration') }}" style="color: aliceblue;">register</a></span>
             </form>
             {% endblock %}
         </div>
