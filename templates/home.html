@@ -180,11 +180,27 @@
 						<section class="text-center mb-5">
 							<div class="py-6 ">
 								<h3>Select your Account Size</h3>
+
+								{% if session.lname %}
+								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group" aria-label="Basic outlined example">
-									<button type="button" class="btn btn-outline-primary">$100 - $1000</button>
-									<button type="button" class="btn btn-outline-primary">$1001 - $10000</button>
-									<button type="button" class="btn btn-outline-primary">$10001 - $100000</button>
+									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$100 - $1000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$1001 - $10000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$10001 - $100000</button></a>
 								</div>
+								
+								{% else %}
+								<p class="mt-4">Login to be able to select your account size for investment.</p>
+								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
+								<div class="btn-group mt-3" role="group">
+									<button type="button" class="btn btn-outline-primary" disabled>$100 - $1000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$1001 - $10000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$10001 - $100000</button>
+								</div>
+								{% endif %}
+								
+
+								
 							</div>
 							
 							
