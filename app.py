@@ -126,8 +126,6 @@ def user_registration():
                 flash(result)
                 return render_template("register.html", location_token=location_token)
 
-            # encode password
-            password = password.encode()
             # encryp password
             password = generate_password_hash(password)
 
