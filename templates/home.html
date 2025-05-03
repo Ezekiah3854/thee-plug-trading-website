@@ -122,14 +122,31 @@
 						<section class="container text-center" id="home_container">
 							<h1 class="mb-4">Built by Traders <br>
 								<i class="fa-solid fa-arrow-right"></i> for Traders</h1>
-							<span>Trade like never before in Masterplan FX.</span><br>
+							<span>Join over 50,000 investors worldwide <br> You invest, we trade on your behalf and return on investment is guaranteed.</span><br><br><br>
+							<span style="margin-top: 2em;">Trade like never before in Masterplan FX.</span><br>
+							
+							<a href="#account-size"><button type="button" class="btn btn-outline-primary mt-4">Buy Challenge </button></a><br>
 							<a href="https://www.instagram.com/theeplug_ke?igsh=YzljYTk1ODg3Zg=="><button type="button" class="btn btn-primary mt-4"><i class="fa-brands fa-instagram me-2"></i>Join us on instagram</button></a>
+						
 						</section>
+
 						<section>
 							<div class="class-container bg-transparent">
 								<div class="container text-center mt-5">
 									<h2 class="mb-4">Why choose us?</h2>
 									<p>We are a team of experienced traders who have developed a platform that is designed to help you succeed in the world of trading. Our platform is user-friendly, secure, and offers a wide range of features to help you make informed trading decisions.</p>
+									<div class="why_us_container">
+										<div class="container-fluid">
+											<p>Profits shared within 24hrs after a successful trading.</p>
+										</div>
+										<div class="container-fluid">
+											<p>Guaranteed return on your investment.</p>
+										</div>
+										<div class="container-fluid">
+											<p>Profit share is processed according to you phase.</p>
+										</div>
+									</div>
+									
 								</div>
 								<div class="container text-center mt-5">
 									<h2 class="mb-5">Our Services</h2>
@@ -156,7 +173,7 @@
 		
 						</section>	
 
-						<section class="mb-5">
+						<section class="mb-5 mt-5">
 							<h1 class="text-center">How Masterplan Fx Works...</h1>
 							<!-- phase 1 -->
 							<div class="class-container bg-transparent">
@@ -174,23 +191,23 @@
 							<!-- phase 3 -->
 							<div class="class-container bg-transparent">
 								<h4 style="color: #fff;">Phase 3</h4>
-								<p>Since you are a MAsterplan FX member, you are given a profit share of <strong>82%</strong> of the profit after trading. This profit share will now be consistent in all your invest going forward.</p>
+								<p>Since you are a Masterplan FX member, you are given a profit share of <strong>82%</strong> of the profit after trading. This profit share will now be consistent in all your invest going forward.</p>
 						</section>
 
-						<section class="text-center mb-5">
+						<section id="account-size" class="text-center mb-5">
 							<div class="py-6 ">
 								<h3>Select your Account Size</h3>
 
 								{% if session.lname %}
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
-								<div class="btn-group mt-3" role="group" aria-label="Basic outlined example">
+								<div class="btn-group mt-3" role="group">
 									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$100 - $1000</button></a>
 									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$1001 - $10000</button></a>
 									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$10001 - $100000</button></a>
 								</div>
 								
 								{% else %}
-								<p class="mt-4">Login to be able to select your account size for investment.</p>
+								<p class="mt-4"><span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">Login first</a></strong></span> to select your account size for investment.</p>
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
 									<button type="button" class="btn btn-outline-primary" disabled>$100 - $1000</button>
@@ -215,7 +232,7 @@
 							</p>
 							<div class="collapse " id="faq1">
 								<div class="card card-body bg-transparent">
-									Getting started is easy! Simply sign up on our website, choose a service package, and start exploring market insights or integrating our trading bots into your strategy.								</div>
+									Getting started is easy! Simply sign up on our website, choose a service package, and start exploring market insights or integrating our trading bots into your strategy.</div>
 							</div>
 
 							<p class="text-center w-3/4">
@@ -225,8 +242,7 @@
 							</p>
 							<div class="collapse " id="faq2">
 								<div class="card card-body bg-transparent">
-									Our trading bots leverage advanced algorithms and strategies like market-making and accumulator techniques to execute trades efficiently. They are designed to analyze trends, make informed decisions, and optimize trading performance.								
-								</div>
+									Our trading bots leverage advanced algorithms and strategies like market-making and accumulator techniques to execute trades efficiently. They are designed to analyze trends, make informed decisions, and optimize trading performance.</div>
 							</div>
 
 							<p class="text-center w-3/4">
@@ -236,8 +252,7 @@
 							</p>
 							<div class="collapse " id="faq3">
 								<div class="card card-body bg-transparent">
-									Yes! We have a 24/7 customer support team ready to assist with any trading-related inquiries, technical issues, or guidance needed.
-=								</div>
+									Yes! We have a 24/7 customer support team ready to assist with any trading-related inquiries, technical issues, or guidance needed.</div>
 							</div>
 
 							<p class="text-center w-3/4">
