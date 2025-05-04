@@ -342,6 +342,10 @@ width: auto;}
     .d-sm-none {
         display:none !important
     }
+
+    .newsletter_email {
+        width: 450px
+    }
 }
 @media(min-width: 768px) {
     .p-md-3 {
@@ -614,6 +618,42 @@ h4,.h4 {
     }
 }
 
+.hero-section {
+    position: relative;
+    background: url('../img/glow-background.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 4em 1em;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Overlay to dim the background */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 for more or less dimness */
+    z-index: 0;
+}
+
+/* Ensure text is above overlay */
+.hero-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2em 1em;
+    }
+}
+
+
 /* Styling schedule class page */
 .class-container {
     padding: 2em;
@@ -716,6 +756,74 @@ h4,.h4 {
 }
 
 
+.platforms-section {
+    position: relative;
+    background-color: transparent;
+    padding: 2rem 0;
+  }
+
+  .slider-mask {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider-mask::before,
+  .slider-mask::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .slider-mask::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(6, 6, 94) 60%, rgba(248, 249, 250, 0));
+  }
+
+  .slider-mask::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(6, 6, 94) 60%, rgba(248, 249, 250, 0));
+  }
+
+  .slider-track {
+    display: flex;
+    width: calc(200px * 12);
+    animation: scroll 20s linear infinite;
+  }
+
+  .platform-box {
+    width: 200px;
+    height: 150px;
+    margin: 0 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: black;
+    flex-shrink: 0;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .slider-wrapper {
+    display: flex;
+    width: 100%;
+  }
 
 
 

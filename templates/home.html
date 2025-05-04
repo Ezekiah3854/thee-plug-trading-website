@@ -119,20 +119,26 @@
 		    <div class="container-xl">
 			    <main role="main" class="pb-3">
 					{% block content%}
-						<section class="container text-center" id="home_container">
+
+
+						<section class="hero-section container text-center" id="home_container">
 							<h1 class="mb-4">Built by Traders <br>
-								<i class="fa-solid fa-arrow-right"></i> for Traders</h1>
+								<i class="fa-solid fa-arrow-right"></i> for Traders
+							</h1>
 							<span>Join over 50,000 investors worldwide <br> You invest, we trade on your behalf and return on investment is guaranteed.</span><br><br><br>
 							<span style="margin-top: 2em;">Trade like never before in Masterplan FX.</span><br>
-							
-							<a href="#account-size"><button type="button" class="btn btn-outline-primary mt-4">Buy Challenge </button></a><br>
-							<a href="https://www.instagram.com/theeplug_ke?igsh=YzljYTk1ODg3Zg=="><button type="button" class="btn btn-primary mt-4"><i class="fa-brands fa-instagram me-2"></i>Join us on instagram</button></a>
 						
+							<a href="#account-size"><button type="button" class="btn btn-outline-primary mt-4">Buy Challenge </button></a><br>
+							<a href="https://www.instagram.com/theeplug_ke?igsh=YzljYTk1ODg3Zg==">
+								<button type="button" class="btn btn-primary mt-4 mb-5">
+									<i class="fa-brands fa-instagram me-2"></i>Join us on Instagram
+								</button>
+							</a>
 						</section>
 
 						<section>
 							<div class="class-container bg-transparent">
-								<div class="container text-center mt-5">
+								<div class="container text-center mt-2">
 									<h2 class="mb-4">Why choose us?</h2>
 									<p>We are a team of experienced traders who have developed a platform that is designed to help you succeed in the world of trading. Our platform is user-friendly, secure, and offers a wide range of features to help you make informed trading decisions.</p>
 									<div class="why_us_container">
@@ -223,6 +229,47 @@
 							
 						</section>
 
+						
+					<!-- Trading Platforms Section -->
+					<section class="platforms-section">
+						<div class="container-fluid">
+						<h2 class="text-center mb-4">Trading Platforms</h2>
+						<div class="slider-mask">
+							<div class="slider-wrapper">
+							<div class="slider-track">
+								<!-- Repeat items twice for seamless loop -->
+								<div class="platform-box">
+									<img src="../static/img/MT4.jpg" alt="">MT4</div>
+								<div class="platform-box">
+									<img src="../static/img/MT5.jpg" alt="">MT5</div>
+								<div class="platform-box">
+									<img src="../static/img/cTrader.jpg" alt="">cTrader</div>
+								<div class="platform-box">
+									<img src="../static/img/ninjatrader.jpg" alt="">NinjaTrader</div>
+								<div class="platform-box">
+									<img src="../static/img/tradingview.jpg" alt="">TradingView</div>
+								<div class="platform-box">
+									<img src="../static/img/etoro.jpg" alt="">eToro</div>
+					
+								<div class="platform-box">
+									<img src="../static/img/MT4.jpg" alt="">MT4</div>
+								<div class="platform-box">
+									<img src="../static/img/MT5.jpg" alt="">MT5</div>
+								<div class="platform-box">
+									<img src="../static/img/cTrader.jpg" alt="">cTrader</div>
+								<div class="platform-box">
+									<img src="../static/img/ninjatrader.jpg" alt="">NinjaTrader</div>
+								<div class="platform-box">
+									<img src="../static/img/tradingview.jpg" alt="">TradingView</div>
+								<div class="platform-box">
+									<img src="../static/img/etoro.jpg" alt="">eToro</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					</section>
+
+
 						<section class="mb-4">
 							<h1 class="text-center mb-5">Some frequently asked questions...</h1>
 							<p class="text-center w-3/4">
@@ -286,6 +333,18 @@
 							</div>
 
 									
+						</section>
+
+						<section class="mt-5" >
+							<div class="card" style="width: 100%; background: transparent; color: #fff;">
+								<h3 class="text-center"><i class="fa-solid fa-paper-plane p-md-3"></i>Newsletter</h3>
+								<div class="card-body">
+								  <h5 class="card-title">Join our Newsletter</h5>
+								  <input type="email" placeholder="Enter your email" class="newsletter_email form-control mb-3" aria-label="Email">
+								  <p class="card-text">Stay updated with the latest news and offers from Masterplan FX.</p>
+								  <a href="#" class="btn btn-primary">Subscribe</a>
+								</div>
+							  </div>
 						</section>
 
 					{% endblock%}
