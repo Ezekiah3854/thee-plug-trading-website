@@ -221,18 +221,18 @@
 								{% if session.lname %}
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
-									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$200 - $500</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$501 - $1500</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$1501 - $2000cus</button></a>
+									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$1000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$2000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$5000</button></a>
 								</div>
 								
 								{% else %}
 								<p class="mt-4"><span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">Login first</a></strong></span> to select your account size.</p>
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
-									<button type="button" class="btn btn-outline-primary" disabled>$200 - $500</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$501 - $1500</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$1501 - $2000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$1000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$2000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$5000</button>
 								</div>
 								{% endif %}
 							</div>							
@@ -349,17 +349,17 @@
 								<h3 class="text-center"><i class="fa-solid fa-paper-plane p-md-3"></i>Newsletter</h3>
 								<div class="card-body">
 								  <h5 class="card-title">Join our Newsletter</h5>
-								<!-- modify this form HTML and place wherever you want your form -->
+								<!-- This is in testing | submissions are sent to tumaini736@gmail.com via formsplee.com | confirmed it works -->
 								<form
-								action="https://formspree.io/f/mzzreljd"
-								method="POST"
-								>
-								<label>
-									Your email:
-									<input type="email" name="email">
-								</label>
-								<!-- your other form fields go here -->
-								<button type="submit">Send</button>
+									action="https://formspree.io/f/mzzreljd"
+									method="POST"
+									>
+									<label>
+										Your email:
+										<input type="email" name="email">
+									</label>
+									<!-- your other form fields go here -->
+									<button type="submit">Send</button>
 								</form>
 								</div>
 							  </div>

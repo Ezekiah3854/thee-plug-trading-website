@@ -100,8 +100,13 @@ def login():
         cursor.close()
         db.close()
         flash("Server failure. Retry")
-        return render_template("register.html", location_token=location_token)
-    except Exve
+        return render_template("login.html", location_token=location_token)
+    except Exception as e:
+        cursor.close()
+        db.close()
+        print(e)
+        flash("Server under maintenance. Try later.")
+        return render_template("login.html", location_token=location_token)
 
 @app.route("/register", methods=["POST", "GET"])
 def user_registration():
