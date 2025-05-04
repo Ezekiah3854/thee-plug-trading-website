@@ -8,7 +8,7 @@ import psycopg2
 load_dotenv(".env")
 
 # environment variables
-DATABASE_URL = os.getenv("DATABASE")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 
 def connect_db():
