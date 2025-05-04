@@ -772,20 +772,20 @@ h4,.h4 {
     content: "";
     position: absolute;
     top: 0;
-    width: 100px;
+    width: 30px;
     height: 100%;
-    z-index: 5;
+    z-index: 2;
     pointer-events: none;
   }
 
   .slider-mask::before {
     left: 0;
-    background: linear-gradient(to right, rgb(6, 6, 94) 60%, rgba(248, 249, 250, 0));
+    background: linear-gradient(to right, rgb(6, 6, 94) 30%, rgba(248, 249, 250, 0));
   }
 
   .slider-mask::after {
     right: 0;
-    background: linear-gradient(to left, rgb(6, 6, 94) 60%, rgba(248, 249, 250, 0));
+    background: linear-gradient(to left, rgb(6, 6, 94) 30%, rgba(248, 249, 250, 0));
   }
 
   .slider-track {
