@@ -125,7 +125,7 @@
 							<h1 class="mb-4">Built by Traders <br>
 								<i class="fa-solid fa-arrow-right"></i> for Traders
 							</h1>
-							<span>Join over 50,000 investors worldwide <br> You invest, we trade on your behalf and return on investment is guaranteed.</span><br><br><br>
+							<span>First trading platform to give you Automated Trading Bots |<br> You invest, we trade on your behalf and return on investment is guaranteed.</span><br><br><br>
 							<span style="margin-top: 2em;">Trade like never before in Masterplan FX.</span><br>
 						
 							<a href="#account-size"><button type="button" class="btn btn-outline-primary mt-4">Buy Challenge </button></a><br>
@@ -140,23 +140,27 @@
 							<div class="class-container bg-transparent">
 								<div class="container text-center mt-2">
 									<h2 class="mb-4">Why choose us?</h2>
-									<p>We are a team of experienced traders who have developed a platform that is designed to help you succeed in the world of trading. Our platform is user-friendly, secure, and offers a wide range of features to help you make informed trading decisions.</p>
+									<!-- <p>
+										We take the trading risk from you <br>
+										We send profits within 24 hours directly to your account <br>
+										Get the flexibility of using Automated Trading Bots.
+									</p> -->
 									<div class="why_us_container">
 										<div class="container-fluid">
-											<p>Profits shared within 24hrs after a successful trading.</p>
+											<p>We take the trading risk from you</p>
 										</div>
 										<div class="container-fluid">
-											<p>Guaranteed return on your investment.</p>
+											<p>We send profits within 24 hours directly to your account</p>
 										</div>
 										<div class="container-fluid">
-											<p>Profit share is processed according to your phase.</p>
+											<p>Get the flexibility of using Automated Trading Bots</p>
 										</div>
 									</div>
 									
 								</div>
 								<div class="container text-center mt-5">
 									<h2 class="mb-5">Our Services</h2>
-									<p class="">We offer a range of services to help you succeed in the world of trading. Our services include:</p>
+									<p class="">We offer a range of services to help you succeed in the world of trading</p>
 									
 									<div class="row justify-content-center">
 										<div class="col-md-6">
@@ -172,8 +176,8 @@
 	
 								<div class="container text-center mt-4">
 									<h1 class="mb-4">Your solution to trading challenges</h1>
-									<p>You deserve the best, and at Funded Elite, we prioritize your growth and success!</p>
-									<p style="color: lightslategray;">We are committed to providing you with the tools and resources you need to succeed in the world of trading. Our platform is designed to help you make informed trading decisions and achieve your financial goals.</p>
+									<p>You deserve the best, and at Masterplan FX, we prioritize your growth and success!</p>
+									<!-- <p style="color: lightslategray;">We are committed to providing you with the tools and resources you need to succeed in the world of trading. Our platform is designed to help you make informed trading decisions and achieve your financial goals.</p> -->
 								</div>
 							</div>
 		
@@ -217,26 +221,21 @@
 								{% if session.lname %}
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
-									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$100 - $1000</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$1001 - $10000</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$10001 - $100000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$1000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$2000</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$5000</button></a>
 								</div>
 								
 								{% else %}
-								<p class="mt-4"><span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">Login first</a></strong></span> to select your account size for investment.</p>
+								<p class="mt-4"><span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">Login first</a></strong></span> to select your account size.</p>
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
-									<button type="button" class="btn btn-outline-primary" disabled>$100 - $1000</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$1001 - $10000</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$10001 - $100000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$1000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$2000</button>
+									<button type="button" class="btn btn-outline-primary" disabled>$5000</button>
 								</div>
 								{% endif %}
-								
-
-								
-							</div>
-							
-							
+							</div>							
 						</section>
 
 						
@@ -281,7 +280,7 @@
 
 
 						<section class="mb-4">
-							<h1 class="text-center mb-5">Some frequently asked questions...</h1>
+							<h1 class="text-center mb-5">Frequently asked questions</h1>
 							<p class="text-center w-3/4">
 								<button class="btn btn-primary bg-transparent" style="width: 100%;"  type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="collapseExample">
 									How can I get started with your services?
@@ -350,9 +349,18 @@
 								<h3 class="text-center"><i class="fa-solid fa-paper-plane p-md-3"></i>Newsletter</h3>
 								<div class="card-body">
 								  <h5 class="card-title">Join our Newsletter</h5>
-								  <input type="email" placeholder="Enter your email" class="newsletter_email form-control mb-3" aria-label="Email">
-								  <p class="card-text">Stay updated with the latest news and offers from Masterplan FX.</p>
-								  <a href="#" class="btn btn-primary">Subscribe</a>
+								<!-- This is in testing | submissions are sent to tumaini736@gmail.com via formsplee.com | confirmed it works -->
+								<form
+									action="https://formspree.io/f/mzzreljd"
+									method="POST"
+									>
+									<label>
+										Your email:
+										<input type="email" name="email">
+									</label>
+									<!-- your other form fields go here -->
+									<button type="submit">Send</button>
+								</form>
 								</div>
 							  </div>
 						</section>
