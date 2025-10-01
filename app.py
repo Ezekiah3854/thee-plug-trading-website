@@ -82,6 +82,13 @@ def user_registration():
         return redirect(url_for("login"))
     return render_template("register.html",), 200
 
+@app.get("/profile")
+def profile():
+    """user profile page"""
+    if session.get('email') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
+    return render_template("profile.html")
 
 @app.get("/logout")
 def logout() -> None:
