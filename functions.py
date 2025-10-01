@@ -1,83 +1,94 @@
-"""helper functions"""
+"""masterplanfx investments website"""
 
 import os
-from urllib.parse import urlparse
-from dotenv import load_dotenv
+import datetime
+from werkzeug.security import check_password_hash, generate_password_hash
 import psycopg2
+from flask import Flask, render_template, session, request, redirect, url_for, flash
+from dotenv import load_dotenv
+from functions import connect_db, validate_user_data
 
+# load environment variables
 load_dotenv(".env")
 
-# environment variables
-DATABASE_URL = os.getenv("DATABASE_URL")
+app = Flask(__name__)
+
+# get location token from env
+location_token = os.getenv("LOCATION_TOKEN")
+
+# config sessions
+app.secret_key = os.urandom(24)  #Secret key for session encryption
+app.permanent_session_lifetime = datetime.timedelta(minutes=45)
 
 
-def connect_db():
-    """connect database"""
-    result = urlparse(DATABASE_URL)
-    try:
-        connection = psycopg2.connect(
-            host=result.hostname,
-            port=result.port,
-            dbname=result.path[1:],
-            user=result.username,
-            password=result.password,
-        )
-        print("db connected")
-        return connection
-    except (
-        psycopg2.InterfaceError,
-        psycopg2.ProgrammingError,
-        psycopg2.DatabaseError
-    ) as e:
-        return f"Connection Failed: {e}"
+@app.get("/")
+def home():
+    """landing page"""
+    return render_template("home.html", location_token=location_token)
 
 
-def validate_user_data(
-    email: str = None,
-    password: str = None,
-    confirm_password: str = None,
-    fname: str = None,
-    lname: str = None,
-    location: str = None,
-):
-    """validate user inputs upon registration and login"""
-    message = None
-    try:
-        while message is None:
-            # password mismatch
-            if confirm_password is not None and password != confirm_password:
-                message = "Passwords do not match!"
-                break
+@app.get("/schedule-class")
+def schedule_class():
+    """schedule class page"""
+    if session.get('email') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
+    return render_template("class.html")
 
-            # include uppercase letters
-            if not any(char.isupper() for char in password):
-                message = "Password must contain a uppercase letter."
-                break
 
-            # include a digit
-            if not any(char.isdigit() for char in password):
-                message = "Password must contain a numeric digit."
-                break
+@app.get("/brokers")
+def get_broker():
+    """brokers page"""
+    if session.get('email') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
+    return render_template("brokers.html")
 
-            # include a special char
-            if not any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~" for char in password):
-                message = "Password must contain a special character."
-                break
 
-            # valid email
-            if email is not None and ("@" not in email or "." not in email):
-                message = "Email must contain an '@' and '.'"
-                break
+@app.get("/available-bots")
+def available_bots():
+    """available bots page"""
+    if session.get('email') is None:
+        flash("Login to access the page.")
+        return redirect(url_for('login'))
+    return render_template("available_bots.html")
 
-            if (fname is not None and len(fname) > 16) or (
-                lname is not None and len(lname) > 16
-            ):
-                message = "Name exceeded limit."
-                break
-            if location is not None and len(location) > 16:
-                message = "Location exceeded limit."
-                break
-            break
-        return message
-    except TypeError as e:
-        return f"Registration failed. {e}"
+
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    """login page"""
+    
+    if request.method == "POST":
+        # get the form data
+        email = request.form["email"]
+        password = request.form["password"]
+
+        # assign session
+        session.clear()
+        session['email'] = email
+        return redirect(url_for("home"))
+    return render_template("login.html")
+
+@app.route("/register", methods=["POST", "GET"])
+def user_registration():
+    """register page"""
+    if request.method == "POST":
+        fname = request.form.get("fname")
+        lname = request.form.get("lname")
+        email = request.form.get("email")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+        location = request.form.get("location")
+
+        return redirect(url_for("login"))
+    return render_template("register.html",), 200
+
+
+@app.get("/logout")
+def logout() -> None:
+    """logout user"""
+    session.clear()
+    return redirect(url_for('home'))
+
+if __name__ == "__main__":
+    app.run(debug=True)
