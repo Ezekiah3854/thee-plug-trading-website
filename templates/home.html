@@ -26,14 +26,14 @@
                         </div>
 						
                         <div class="app-utilities col-auto">
-							{% if session.lname %}
+							{% if session.email %}
 								<div class="dropdown">
 									<i class="fa-solid fa-circle-chevron-down px-2" style="font-size: x-large;" data-bs-toggle="dropdown" aria-expanded="false"></i>
 									
 									<ul class="dropdown-menu p-md-4">
 										<img src="{{ url_for('static', filename='img/youngprince.jpg') }}" style="width: 40px; height: 40px; display: flex; margin: 0 auto; " alt="user profile">
 
-										<li><a class="dropdown-item" href="#">Hi, {{ session.lname }}</a></li>
+										<li><a class="dropdown-item" href="#">Hi, {{ session.email }}</a></li>
 									</ul>
 								</div>
 							{% endif %}
@@ -57,7 +57,7 @@
 								<span class="nav-link-text">Home</span>
 							</a>
 						</li>
-						{% if session.lname %}
+						{% if session.email %}
 							<li class="nav-item">
 								<a class="nav-link" style="font-size: large;" href="{{ url_for('available_bots') }}">
 									<span class="nav-icon"><i class="fa-brands fa-bots"></i></span>
@@ -92,7 +92,7 @@
 						{% endif %}
 					</ul>
 				</nav>
-				{% if session.lname %}
+				{% if session.email %}
 					<div class="app-sidepanel-footer">
 						<nav class="app-nav app-nav-footer">
 							<ul class="app-menu footer-menu list-unstyled">
@@ -218,7 +218,7 @@
 							<div class="py-6 ">
 								<h3>Select your Account Size</h3>
 
-								{% if session.lname %}
+								{% if session.email %}
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
 								<div class="btn-group mt-3" role="group">
 									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$1000</button></a>
@@ -379,4 +379,3 @@
     <script src="{{ url_for('static', filename='js/home.js') }}"></script> 
 </body>
 </html> 
-
