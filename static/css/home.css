@@ -731,8 +731,8 @@ h4,.h4 {
 }
 
 .class-container .why_us_container .container-fluid {
-    padding: 3em; 
-    background: rgb(101, 101, 233);
+    padding: 1em; 
+    background: rgb(60, 60, 223);
     border-radius: 10px;
     margin-top: 2em;
 }
@@ -748,7 +748,7 @@ h4,.h4 {
     }
 }
 
-@media (min-width: 810px) {
+@media (min-width: 700px) {
     .class-container .why_us_container{
         display: flex;
         flex-direction: row;
