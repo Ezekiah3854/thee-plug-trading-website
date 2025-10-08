@@ -2,45 +2,99 @@
 {% block title %}Profile | The plug Trading{% endblock %}
 {% block content %}
 <div class="profile-container">
-    <h2>User Profile</h2>
-    <p>Welcome, {{ session.email }}!</p>
+    <h2 class="profile-title">My Account</h2>
+
     <div class="class-container bg-transparent">
-        <div class="container text-center mt-2">
-            
+        <div class="container details text-center">
+            <p>Welcome, {{ session.email }}!</p>
+
             <div class="why_us_container">
                 <div class="container-fluid">
-                    <p>We take the trading risk from you</p>
+                    <img src="https://cdn-icons-png.flaticon.com/128/6706/6706193.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69);">12/12/2024</p>
+                        <p style="font-size: medium;">Registration Date</p>
+                    </div>
                 </div>
                 <div class="container-fluid">
-                    <p>We send profits within </p>
-                </div>
-                <div class="container-fluid">
-                    <p>Get the flexibility of using Automated Trading Bots</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="container text-center mt-5">
-            <h2 class="mb-5">Our Services</h2>
-            <p class="">We offer a range of services to help you succeed in the world of trading</p>
-
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <ul class="list-group-flush ">
-                        <li class="list-group-item my-3">📈 Market Analysis</li>
-                        <li class="list-group-item my-3">🤖 Trading Bots</li>
-                        <li class="list-group-item my-3">📚 Educational Resources</li>
-                        <li class="list-group-item my-3">🔧 24/7 Customer Support</li>
-                    </ul>
+                    <img src="https://cdn-icons-png.flaticon.com/128/6119/6119654.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69);">100.0.0.123</p>
+                        <p style="font-size: medium;">My IP Address</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container text-center mt-4">
-            <h1 class="mb-4">Your solution to trading challenges</h1>
-            <p>You deserve the best, and at Masterplan FX, we prioritize your growth and success!</p>
-            <!-- <p style="color: lightslategray;">We are committed to providing you with the tools and resources you need to succeed in the world of trading. Our platform is designed to help you make informed trading decisions and achieve your financial goals.</p> -->
+    <div class="class-container bg-transparent">
+        <div class="container details text-center">
+            <p style="font-size: larger; font-weight: 400;">Account Summary</p>
+            <div class="why_us_container">
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/18549/18549078.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$10,787</p>
+                        <p style="font-size: medium;">Account Balance</p>
+                    </div>
+                </div>
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/18699/18699674.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$76,867</p>
+                        <p style="font-size: medium;">Total Earnings</p>
+                    </div>
+                </div>
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/9331/9331550.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$0</p>
+                        <p style="font-size: medium;">Active Deposit</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="class-container bg-transparent">
+        <div class="container details text-center">
+            <p class="mt-5" style="font-size: larger; font-weight: 400;">My Transactions</p>
+            <div class="why_us_container">
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/15337/15337648.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$100</p>
+                        <p style="font-size: medium;">Last Deposit</p>
+                    </div>
+                </div>
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/11539/11539705.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$200</p>
+                        <p style="font-size: medium;">Last Withdrawal</p>
+                    </div>
+                </div>
+                <div class="account-container-fluid">
+                    <img src="https://cdn-icons-png.flaticon.com/128/11396/11396368.png" width="70" height="70" alt=""
+                        srcset="">
+                    <div style="margin-left: 2em;">
+                        <p style="color: rgb(131, 197, 69); font-size: x-large; font-weight: 700;">$55,690</p>
+                        <p style="font-size: medium;">Total Withdrawals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="make-deposit text-center mt-5 mb-5">
+        <button class="btn btn-primary px-4" style="font-size: larger;">Make a Deposit</button>
     </div>
 </div>
 {% endblock %}
