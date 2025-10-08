@@ -66,6 +66,7 @@ def login():
         session.clear()
         session['email'] = email
         return redirect(url_for("home"))
+    session.clear()
     return render_template("login.html")
 
 @app.route("/register", methods=["POST", "GET"])
