@@ -16,14 +16,15 @@
         <div class="app-header-inner">  
             <div class="container-fluid">
                 <div class="app-header-content"> 
-                    <div class="row justify-content-between align-items-center py-2">
+                    <div class="d-flex py-3 justify-content-between align-items-center">
                         <div class="col-auto">
                             <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none p-md-3" style="cursor: pointer; color: #fff;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
                             </a>
-                            <p style="font-size: larger; font-weight: 700; padding-left: 2ex; position: relative;" >Masterplan FX</p>
-
+                            
                         </div>
+
+						<div class="masterplan-header col-auto"><a>Masterplan FX</a></div>
 						
                         <div class="app-utilities col-auto">
 							{% if session.email %}
@@ -226,19 +227,19 @@
 
 								{% if session.email %}
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
-								<div class="btn-group mt-3" role="group">
-									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary">$1000</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary">$2000</button></a>
-									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary">$5000</button></a>
+								<div class="btn-group mt-3 gap-3" role="group">
+									<a href="https://www.paypal.com/ncp/payment/RT8HLBHW35NY2"><button type="button" class="btn btn-outline-primary px-5">$100</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BDWAV5A2TF2T4"><button type="button" class="btn btn-outline-primary px-5">$200</button></a>
+									<a href="https://www.paypal.com/ncp/payment/BYWGMZVUPKER6"><button type="button" class="btn btn-outline-primary px-5">$500</button></a>
 								</div>
 								
 								{% else %}
-								<p class="mt-4"><span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">Login first</a></strong></span> to select your account size.</p>
+								<p class="mt-4">You have to login first. Click <span><strong><a  style="color: rgb(91, 147, 230);" href="{{ url_for('login') }}">here</a></strong></span></p>
 								<label for="account-size" class="form-label">Investement Phase Entry</label> <br>
-								<div class="btn-group mt-3" role="group">
-									<button type="button" class="btn btn-outline-primary" disabled>$1000</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$2000</button>
-									<button type="button" class="btn btn-outline-primary" disabled>$5000</button>
+								<div class="btn-group mt-3 gap-3" role="group">
+									<a><button type="button" class="btn btn-outline-primary px-5" disabled>$100</button></a>
+									<a><button type="button" class="btn btn-outline-primary px-5" disabled>$200</button></a>
+									<a><button type="button" class="btn btn-outline-primary px-5" disabled>$500</button></a>
 								</div>
 								{% endif %}
 							</div>							
