@@ -413,6 +413,12 @@ h4,.h4 {
 .app-header-inner {
     position:relative
 }
+
+.masterplan-header {
+    font-size: x-large; 
+    font-weight: 700; 
+    position: relative;
+}
 .app-utility-item {
     display:inline-block;
     margin-right:1.25rem
