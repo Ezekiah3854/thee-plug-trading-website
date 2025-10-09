@@ -616,7 +616,7 @@ h4,
 .app-branding .logo-icon {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+
 
 }
 
@@ -628,13 +628,14 @@ h4,
 }
 
 .app-nav .app-menu {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .app-nav .nav-item {
     display: block;
     color: #5d6778;
     background-color: rgb(6, 6, 94);
+    padding-left: 2em;
 }
 
 .app-nav .nav-link {

@@ -1,24 +1,24 @@
-const sidePanelToggler = document.getElementById('sidepanel-toggler'); 
-const sidePanel = document.getElementById('app-sidepanel');  
-const sidePanelDrop = document.getElementById('sidepanel-drop'); 
-const sidePanelClose = document.getElementById('sidepanel-close'); 
+const sidePanelToggler = document.getElementById('sidepanel-toggler');
+const sidePanel = document.getElementById('app-sidepanel');
+const sidePanelDrop = document.getElementById('sidepanel-drop');
+const sidePanelClose = document.getElementById('sidepanel-close');
 
-window.addEventListener('load', function(){
-	responsiveSidePanel(); 
+window.addEventListener('load', function () {
+	responsiveSidePanel();
 });
 
-window.addEventListener('resize', function(){
-	responsiveSidePanel(); 
+window.addEventListener('resize', function () {
+	responsiveSidePanel();
 });
 
 function responsiveSidePanel() {
-    let w = window.innerWidth;
-	if(w >= 1200) {
+	let w = window.innerWidth;
+	if (w >= 1200) {
 		sidePanel.classList.remove('sidepanel-hidden');
 		sidePanel.classList.add('sidepanel-visible');
-		
+
 	} else {
-	    sidePanel.classList.remove('sidepanel-visible');
+		sidePanel.classList.remove('sidepanel-visible');
 		sidePanel.classList.add('sidepanel-hidden');
 	}
 };
@@ -28,7 +28,7 @@ sidePanelToggler.addEventListener('click', () => {
 		console.log('visible');
 		sidePanel.classList.remove('sidepanel-visible');
 		sidePanel.classList.add('sidepanel-hidden');
-		
+
 	} else {
 		console.log('hidden');
 		sidePanel.classList.remove('sidepanel-hidden');
@@ -44,3 +44,12 @@ sidePanelClose.addEventListener('click', (e) => {
 sidePanelDrop.addEventListener('click', (e) => {
 	sidePanelToggler.click();
 });
+
+function copyToClipboard() {
+	var walletText = document.getElementById("bitcoinWallet").value;
+	navigator.clipboard.writeText(walletText).then(function () {
+		alert("Bitcoin wallet address copied!");
+	}, function (err) {
+		console.error("Could not copy text: ", err);
+	});
+}
