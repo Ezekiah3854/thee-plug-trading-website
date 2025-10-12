@@ -2,40 +2,49 @@
 {% extends "login.html"%}
 {% block title %}Register | The plug Trading{% endblock %}
 {% block container %}
-    <form class="bg-transparent w-2/3" style="height: auto;" method="post" action="{{ url_for('user_registration') }}">
-        <img style="width: 100px; display: block; margin: 0 auto;" src="https://cdn-icons-png.flaticon.com/128/2207/2207110.png" alt="">
-        <p class="text-lg font-normal text-white-600 mb-7">Register</p>
+<form class="bg-transparent w-2/3" style="height: auto;" method="post" action="{{ url_for('user_registration') }}">
+    <img style="width: 100px; display: block; margin: 0 auto;"
+        src="https://cdn-icons-png.flaticon.com/128/2207/2207110.png" alt="">
+    <p class="text-lg font-normal text-white-600 mb-7">Register</p>
 
-        {% for message in get_flashed_messages() %}
-            <div class="flash mb-3" style="text-align: center; color: crimson;">{{ message }}</div>
-        {% endfor %}
+    {% for message in get_flashed_messages() %}
+    <div class="flash mb-3" style="text-align: center; color: crimson;">{{ message }}</div>
+    {% endfor %}
 
-        <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <i class="fa-solid fa-at"></i>
-            <input class="pl-2 w-full outline-none border-none" type="email" name="email" placeholder="Email" placeholder="mail@site.com" required />
+    <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <i class="fa-solid fa-at"></i>
+        <input class="pl-2 w-full outline-none border-none" type="email" name="email" placeholder="Email"
+            placeholder="mail@site.com" required />
+    </div>
+
+    <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <i class="fa-solid fa-circle-user"></i>
+        <input class="pl-2 w-full outline-none border-none" type="text" name="username" maxlength="10"
+            placeholder="Username" required />
+    </div>
+
+    <div class="flex items-center border-2 py-2 p-3 rounded-2xl mb-4">
+        <i class="fa-solid fa-lock"></i>
+        <input class="pl-2 w-full outline-none border-none" type="password" name="password" id="password-register"
+            placeholder="Password-alphanumeric" maxlength="16" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" required />
+        <div class="ml-2 cursor-pointer" id="visibility-register">
+            <i class="fa-regular fa-eye-slash ml-2" id="v_slash_register" style="display: none;"></i>
+            <i class="fa-regular fa-eye" id="v_plain_register" style="display: block;"></i>
         </div>
+    </div>
 
-        <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <i class="fa-solid fa-circle-user"></i>
-            <input class="pl-2 w-full outline-none border-none" type="text" name="username" maxlength="10" placeholder="Username" required/>
-        </div>
+    <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <i class="fa-solid fa-lock"></i>
+        <input class="pl-2 w-full outline-none border-none" type="password" name="confirm_password" id="confirmPassword"
+            placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" maxlength="16"
+            required />
+    </div>
 
-        <div class="flex items-center border-2 py-2 p-3 rounded-2xl mb-4">
-            <i class="fa-solid fa-lock"></i>
-            <input class="pl-2 w-full outline-none border-none" type="password" name="password" id="password" placeholder="Password-alphanumeric" maxlength="16"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"  required/>
-            <div class="ml-2 cursor-pointer" id="visibility">
-                <i class="fa-regular fa-eye-slash ml-2" id="v_slash" style="display: none;"></i>
-                <i class="fa-regular fa-eye" id="v_plain" style="display: block;"></i>
-            </div>
-        </div>
-        <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <i class="fa-solid fa-lock"></i>
-            <input class="pl-2 w-full outline-none border-none" type="password" name="confirm_password" id="confirmPassword" placeholder="Confirm Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"  maxlength="16" required/>
-        </div>
-
-        <button type="submit" class="block w-full bg-blue-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Register</button>
-        <span class="text-sm ml-2 cursor-pointer mb-4">Already have an account?  <a href="{{ url_for('login') }}" style="color: #fff;">login</a></span>
-    </form>
+    <button type="submit"
+        class="block w-full bg-blue-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Register</button>
+    <span class="text-sm ml-2 cursor-pointer mb-4">Already have an account? <a href="{{ url_for('login') }}"
+            style="color: rgb(98, 98, 235);">login</a></span>
+</form>
 {% endblock %}

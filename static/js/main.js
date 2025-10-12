@@ -1,3 +1,4 @@
+console.log("✅ main.js loaded successfully");
 const sidePanelToggler = document.getElementById('sidepanel-toggler');
 const sidePanel = document.getElementById('app-sidepanel');
 const sidePanelDrop = document.getElementById('sidepanel-drop');

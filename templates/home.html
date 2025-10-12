@@ -34,7 +34,7 @@
 									<ul class="dropdown-menu p-md-4">
 										<img src="{{ url_for('static', filename='img/youngprince.jpg') }}" style="width: 40px; height: 40px; display: flex; margin: 0 auto; " alt="user profile">
 
-										<li><a class="dropdown-item" href="#">Hi, {{ session.email }}</a></li>
+										<li><a class="dropdown-item" href="#">Hi, {{ session.username }}</a></li>
 									</ul>
 								</div>
 							{% endif %}
@@ -381,6 +381,6 @@
             </div>
         </div>
     </div>  					
-    <script src="{{ url_for('static', filename='js/home.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script> 
 </body>
 </html> 

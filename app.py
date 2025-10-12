@@ -6,6 +6,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import psycopg2
 from flask import Flask, render_template, session, request, redirect, url_for, flash
 from dotenv import load_dotenv
+from functions import get_user_by_email, insert_user, verify_password
 
 # load environment variables
 load_dotenv(".env")
@@ -62,25 +63,30 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
-        # assign session
-        session.clear()
-        session['email'] = email
-        return redirect(url_for("home"))
-    session.clear()
+        user = get_user_by_email(email)
+        if user and verify_password(user[3], password):
+            session['username'] = user[2]
+            session['email'] = user[1]
+            session.permanent = True
+            flash("Login successful!", "success")
+            return redirect(url_for("home"))
+        else:
+            flash("Invalid email or password.", "error")
     return render_template("login.html")
 
 @app.route("/register", methods=["POST", "GET"])
 def user_registration():
     """register page"""
     if request.method == "POST":
-        fname = request.form.get("fname")
-        lname = request.form.get("lname")
         email = request.form.get("email")
+        username = request.form.get("username")
         password = request.form.get("password")
-        confirm_password = request.form.get("confirm_password")
-        location = request.form.get("location")
-
-        return redirect(url_for("login"))
+        try:
+            insert_user(email, username, password)
+            flash("Registration successful. Please login.", "success")
+            return redirect(url_for("login"))
+        except Exception as e:
+            flash(f"Error: {e}", "error")
     return render_template("register.html",), 200
 
 @app.get("/profile")
