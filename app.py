@@ -57,7 +57,6 @@ def available_bots():
 @app.route("/login", methods=["POST", "GET"])
 def login():
     """login page"""
-    
     if request.method == "POST":
         # get the form data
         email = request.form["email"]
